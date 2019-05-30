@@ -11,6 +11,6 @@ class SubCategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\SubCategory::class,4500)->create();
+        factory(App\SubCategory::class,50)->create();
     }
 }

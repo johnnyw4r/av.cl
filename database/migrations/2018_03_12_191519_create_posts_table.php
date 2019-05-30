@@ -15,32 +15,27 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigincrements('id');
-            
             $table->biginteger('user_id')->unsigned();
-            
+            $table->integer('category_id')->unsigned();
             $table->integer('subcategory_id')->unsigned();
-
             $table->string('title',128);
             $table->text('body');
             $table->string('slug',128);
-            $table->char('negotiable',1);
+            $table->char('negotiable',1)->nullable();
             $table->double('price',15,3);
-            $table->double('oldPrice',15,3);
-            $table->double('bestPrice',15,3);
+            $table->double('oldPrice',15,3)->nullable();
+            $table->double('bestPrice',15,3)->nullable();
             $table->date('dateStart');
             $table->date('dateEnd');
             $table->string('country',128);
             $table->string('region',128);
-            $table->string('commune',128);
-            $table->string('city',128);
-            $table->string('sector',128);
-            $table->char('deleted',1);
+            $table->char('deleted',1)->default(0);
             $table->enum('state',['DRAFT','FOR REVISED','IN REVISION','DISCART','PUBLISHED'])->default('DRAFT');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-
-            $table->foreign('subcategory_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('subcategory_id')->references('id')->on('sub_categories');
 
 
 

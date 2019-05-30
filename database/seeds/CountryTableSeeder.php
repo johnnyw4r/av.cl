@@ -25,7 +25,6 @@ class CountryTableSeeder extends Seeder
             ['name'=>'España'],
             ['name'=>'El Salvador'],
             ['name'=>'Guatemala'],
-            ['name'=>'Haití'],
             ['name'=>'Honduras'],
             ['name'=>'México'],
             ['name'=>'Nicaragua'],

@@ -22,9 +22,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token'    => str_random(10),
         'country'           => $faker->country,
         'region'            => $faker->state,
-        'commune'           => $faker->state,
-        'city'              => $faker->city,
-        'sector'            => $faker->address,
         'mobile'            => $faker->phoneNumber,
     ];
 });

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Country;
+use App\Region;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -51,6 +53,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'mobile'    => 'required|numeric',
             'g-recaptcha-response' => 'required|captcha',
         ]);
     }
@@ -63,11 +66,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $country= Country::pluck('name','id');
+        $region= Region::pluck('name','id');
+
         return User::create([
             'name' => $data['name'],
+            'gender'=> $data['gender'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'country' => $country[$data['country']],
+            'region' => $region[$data['region']],
+            'mobile' =>$data['mobile'],
             
+        ]);
+    }
+
+    protected function edit(array $data)
+    {
+        $country= Country::pluck('name','id');
+        $region= Region::pluck('name','id');
+
+        return User::create([
+            'name' => $data['name'],
+            'gender'=> $data['gender'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'country' => $country[$data['country']],
+            'region' => $region[$data['region']],
+            'mobile' =>$data['mobile'],
+
         ]);
     }
 }

@@ -11,6 +11,6 @@ class NegotiationTableSeeder extends Seeder
      */
     public function run()
     {
-          factory(App\Negotiation::class,20)->create();
+      //    factory(App\Negotiation::class,20)->create();
     }
 }

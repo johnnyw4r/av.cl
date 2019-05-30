@@ -20,9 +20,6 @@ class UserTableSeeder extends Seeder
         	'password'	=> bcrypt('gargolas'),
         	'country'	=> 'Chile',
         	'region'	=> 'Coquimbo',
-        	'commune'	=> 'Coquimbo',
-        	'city'		=> 'Coquimbo',
-        	'sector'	=> 'La Cantera Alta',
         	'mobile'	=> '+56973678272',
         ]);
     }

@@ -10,6 +10,6 @@ class Photo extends Model
 
     
     public function post(){
-    	return $this->belongsToMany(Post::class);
+    	return $this->belongsTo(Post::class);
     }
 }

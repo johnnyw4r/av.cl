@@ -11,7 +11,7 @@ class PostTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Post::class,1000)->create()->each(function(App\Post $post){
+        factory(App\Post::class,50)->create()->each(function(App\Post $post){
         	$post->subcategory([
         			rand(1,10),
         	]);

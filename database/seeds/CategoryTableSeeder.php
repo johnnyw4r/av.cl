@@ -15,8 +15,6 @@ class CategoryTableSeeder extends Seeder
         //factory(App\Category::class,10)->create();
 
         $data = [
-
-            ['name'=>' Todas las Categorías'],
             ['name'=>'Inmuebles'],
             ['name'=>'Vehículos'],
             ['name'=>'Hogar'],

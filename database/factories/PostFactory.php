@@ -8,6 +8,10 @@ $factory->define(App\Post::class, function (Faker $faker) {
     $p = rand(0, 999999999);
     $po= $p + rand(-999999, 999999);
     $pbest = max($p,$po);
+    $data = ['Argentina','Bolivia','Brasil','Chile','Colombia','Costa Rica','Cuba','Ecuador','España','El Salvador',
+        'Guatemala','Honduras','México','Nicaragua','Panamá','Perú','República Dominicana','Uruguay','Venezuela'
+    ];
+
 
     return [
         'title'		       =>$title,
@@ -19,13 +23,11 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'bestPrice'	       => $pbest,
         'dateStart'	       => $faker->dateTime('now'),
         'dateEnd'	       => $faker->dateTimeBetween('+0 days', '+30 days'),
-        'country'          => $faker->country,
+        'country'          => $data[rand(0,18)],
         'region'           => $faker->state,
-        'commune'          => $faker->state,
-        'city'             => $faker->city,
-        'sector'           => $faker->sentence(2),
         'deleted'	       => 0,
         'state'		       => 'DRAFT',
+        'category_id'   => random_int(1, 9),
         'subcategory_id'   => random_int(1, 9),
         'user_id'          => random_int(1, 30),
         
